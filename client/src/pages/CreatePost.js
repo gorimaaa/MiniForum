@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
 function CreatePost() {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL  || 'http://localhost:3001';
     let navigate = useNavigate(); 
     const initialValues={
         title:"",
@@ -17,7 +18,7 @@ function CreatePost() {
         username: Yup.string().min(3).max(15).required()
     })
     const onSubmit = (data) => {
-        axios.post("https://full-stack-api-gorima-1578d203665e.herokuapp.com/posts", data).then((response) => {
+        axios.post(backendUrl + "/posts", data).then((response) => {
             navigate("/");
           })
     }

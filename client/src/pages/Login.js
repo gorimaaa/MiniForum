@@ -3,13 +3,14 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from '../helpers/AuthContext'
 function Login() {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001'; 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const {setAuthState} = useContext(AuthContext)
     const navigate = useNavigate();
     const login = () => {
         const data = {username: username, password: password};
-        axios.post("https://full-stack-api-gorima-1578d203665e.herokuapp.com/auth/login", data).then((response) => {
+        axios.post(backendUrl + "/auth/login", data).then((response) => {
             if(response.data.error){
                 alert(response.data.error);
             }else{

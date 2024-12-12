@@ -3,17 +3,18 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { AuthContext } from '../helpers/AuthContext'
 function Post() {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
     let { id } = useParams();
     const [postObject, setPostObject] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState("");
     const { authState } = useContext(AuthContext); 
     useEffect(() => {
-        axios.get(`https://full-stack-api-gorima-1578d203665e.herokuapp.com/posts/byId/${id}`).then((response) => {
+        axios.get(backendUrl + `/posts/byId/${id}`).then((response) => {
           setPostObject(response.data);
         });
 
-        axios.get(`https://full-stack-api-gorima-1578d203665e.herokuapp.com/comments/${id}`).then((response) => {
+        axios.get(backendUrl + `/comments/${id}`).then((response) => {
           setComments(response.data);
         });
     }, []);
@@ -21,7 +22,7 @@ function Post() {
 
   const addComment = (() =>  {
     axios
-    .post("https://full-stack-api-gorima-1578d203665e.herokuapp.com/comments", {
+    .post(backendUrl + "/comments", {
       commentBody: newComment,
        PostId: id },
        {
@@ -40,7 +41,7 @@ function Post() {
     }) 
   });
   const deleteComment = (id) => {
-    axios.delete(`https://full-stack-api-gorima-1578d203665e.herokuapp.com/comments/${id}`, {
+    axios.delete(`${backendUrl}/comments/${id}`, {
       headers:{
         accessToken: localStorage.getItem('accessToken')
       }

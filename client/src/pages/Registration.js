@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
 function Registration() {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001'; 
     const navigate = useNavigate();
     const initialValues={
        username: "",
@@ -15,7 +16,7 @@ function Registration() {
         password: Yup.string().min(4).max(20).required()
     })
     const onSubmit = (data) => {
-        axios.post("https://full-stack-api-gorima-1578d203665e.herokuapp.com/auth", data).then(() => {
+        axios.post(backendUrl + "/auth", data).then(() => {
             navigate('/login')
         });
     };

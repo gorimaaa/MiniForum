@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
     const [listOfPosts, setListOfPosts] = useState([]);
     let navigate = useNavigate();
     useEffect(() => {
-      axios.get("https://full-stack-api-gorima-1578d203665e.herokuapp.com/posts").then((response) => {
+      axios.get(backendUrl + "/posts").then((response) => {
         setListOfPosts(response.data);
       })
     }, [])

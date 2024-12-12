@@ -9,13 +9,15 @@ import { AuthContext } from './helpers/AuthContext';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 function App() {
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
+  console.log("Backend URL:", backendUrl); // Debugging
   const [authState, setAuthState] = useState({
      username: "",
      id: 0, 
      status: false});
 
   useEffect(() => {
-    axios.get('https://full-stack-api-gorima-1578d203665e.herokuapp.com/auth/auth', {
+    axios.get(backendUrl + '/auth/auth', {
       headers: {
         accessToken: localStorage.getItem('accessToken')
       }
