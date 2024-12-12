@@ -30,5 +30,5 @@ npm start
 ```
 
 ## Demonstration
-A short video (50 seconds) to present this website
-
+A short video (60 seconds) to present this website
+[![Watch the Demo](https://img.youtube.com/vi/fZHZUIMBG78/maxresdefault.jpg)](https://www.youtube.com/watch?v=fZHZUIMBG78)
