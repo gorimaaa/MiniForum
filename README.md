@@ -1,6 +1,6 @@
 # MiniForum
 
-MiniForum is a web application for creating and managing discussion forums. Users can post topics, comment on discussions, and interact in real-time. The project demonstrates full-stack web development using:
+MiniForum is a web application for creating and managing discussion on a forum. Users can post topics, comment on discussions, and interact in real-time. The project demonstrates full-stack web development using:
 
 - **Frontend:** React 
 - **Backend:** Express.js with a REST API
