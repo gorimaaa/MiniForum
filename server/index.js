@@ -4,18 +4,6 @@ const cors = require('cors');
 require("dotenv").config();
 
 
-// const { sign } = require('jsonwebtoken');
-// const fs = require('fs');
-// var path = "public.pem"
-
-// var secretKey = fs.readFileSync(path); // Lire la clé privée depuis un fichier
-
-// const payload = {
-//   login: 'admin'
-// };
-// const token = sign(payload, secretKey, { algorithm: 'HS256' });
-// console.log("-----ICI----\n" + token)
-
 app.use(express.json());
 app.use(cors());
 

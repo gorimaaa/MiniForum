@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "v3",
-    "host": "localhost",
+    "host": "db",
     "dialect": "mysql"
   },
   "test": {
