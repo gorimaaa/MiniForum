@@ -1,3 +1,4 @@
+version: "3"
 services:
   db:
     image: mysql:8.0
@@ -13,13 +14,7 @@ services:
       - db_data:/var/lib/mysql
     networks:
       - app-network
-  frontend:
-    build: ./client
-    container_name: frontend
-    ports:
-      - "80:80"
-    networks:
-      - app-network
+
   backend:
     build: ./server
     restart: always
@@ -31,8 +26,33 @@ services:
     networks:
       - app-network
 
+  frontend:
+    build: ./client
+    container_name: frontend
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # Montage du volume des certificats dans le container pour que Nginx puisse y accéder
+      - certs:/etc/letsencrypt
+      # Montage du volume pour le challenge ACME (doit correspondre à la racine définie dans nginx.conf)
+      - certbot-webroot:/var/www/certbot
+    networks:
+      - app-network
+
+  certbot:
+    image: certbot/certbot
+    container_name: certbot
+    volumes:
+      - certs:/etc/letsencrypt
+      - certbot-webroot:/var/www/certbot
+    command: certonly --webroot --webroot-path=/var/www/certbot --email juba.belhocine@outlook.fr --agree-tos --no-eff-email -d miniforum.jubabelhocine.com
+    # Vous pouvez lancer ce service manuellement pour obtenir le certificat, puis l'arrêter
+
 volumes:
   db_data:
+  certs:
+  certbot-webroot:
 
 networks:
   app-network:
