@@ -30,7 +30,7 @@ services:
     build: ./client
     container_name: frontend
     ports:
-      - "80:80"
+      - "5173:80"
     networks:
       - app-network
 
