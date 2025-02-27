@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import { AuthContext } from '../helpers/AuthContext'
 function Post() {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     let { id } = useParams();
     const [postObject, setPostObject] = useState({});
     const [comments, setComments] = useState([]);

@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom"
 function CreatePost() {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL  || 'http://localhost:3001';
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     let navigate = useNavigate(); 
     const initialValues={
         title:"",

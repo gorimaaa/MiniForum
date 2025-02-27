@@ -3,7 +3,7 @@ import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from '../helpers/AuthContext'
 function Login() {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001'; 
+    const backendUrl = process.env.REACT_APP_BACKEND_URL; 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const {setAuthState} = useContext(AuthContext)

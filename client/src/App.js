@@ -9,7 +9,7 @@ import { AuthContext } from './helpers/AuthContext';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 function App() {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
   console.log("Backend URL:", backendUrl); // Debugging
   const [authState, setAuthState] = useState({
      username: "",
@@ -41,6 +41,7 @@ function App() {
     setAuthState({username: "", id: 0, status: false});
 
   }
+
   return (
     <div className="App">
       <AuthContext.Provider value={{authState, setAuthState}}>

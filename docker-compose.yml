@@ -4,10 +4,10 @@ services:
     image: mysql:8.0
     container_name: db
     environment:
-      MYSQL_DATABASE: v3
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: gorima
-      MYSQL_PASSWORD: gorima
+      MYSQL_DATABASE: i0am6x4xu6o9c87l
+      MYSQL_ROOT_PASSWORD: mlgk36psaklp3oidmlgk36psaklp3oidi0am6x4xu6o9c87l
+      MYSQL_USER: n0fvn1lt5ug68fn3
+      MYSQL_PASSWORD: mlgk36psaklp3oid
     ports:
       - "3306:3306"
     volumes:

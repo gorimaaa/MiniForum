@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     const [listOfPosts, setListOfPosts] = useState([]);
     let navigate = useNavigate();
     useEffect(() => {
