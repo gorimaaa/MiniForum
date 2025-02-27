@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run build:prod
 
 # Étape 2: Servir le frontend avec Nginx
 FROM nginx:alpine
