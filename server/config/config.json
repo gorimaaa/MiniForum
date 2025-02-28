@@ -8,9 +8,9 @@
     "port": 3306
   },
   "production": {
-    "username": "n0fvn1lt5ug68fn3",
-    "password": "mlgk36psaklp3oid",
-    "database": "i0am6x4xu6o9c87l",
+    "username": "gorima",
+    "password": "gorima",
+    "database": "v3",
     "host": "db",
     "dialect": "mysql",
     "port": 3306
