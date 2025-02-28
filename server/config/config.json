@@ -3,7 +3,7 @@
     "username": "gorima",
     "password": "gorima",
     "database": "v3",
-    "host": "localhost",
+    "host": "db",
     "dialect": "mysql",
     "port": 3306
   },
